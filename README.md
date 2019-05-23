@@ -1,5 +1,7 @@
 # Λ
 
+[![Build Status][badge]][home]
+
 A set of potentially useful higher-order functions in Go. Write some functions
 which use integers, and use them with `Λ.Map`, `Λ.Reduce`, `Λ.Find`, etc.
 
@@ -55,3 +57,6 @@ func main() {
 ```
 
 Documentation is available on [GoDoc](https://godoc.org/gitlab.com/bjjb/λ).
+
+[home]: https://travis-ci.com/bjjb/xn--wxa
+[badge]: https://travis-ci.com/bjjb/xn--wxa.svg?branch=master
