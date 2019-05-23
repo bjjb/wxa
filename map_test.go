@@ -7,11 +7,16 @@ import (
 )
 
 func TestMap(t *testing.T) {
-	t.Run("normal", func(t *testing.T) {
-		λ := func(e interface{}) (interface{}, error) {
-			return strings.ToUpper(e.(string)), nil
+	λ := func(e interface{}) (interface{}, error) {
+		s, ok := e.(string)
+		if !ok {
+			return nil, errors.New("boom")
 		}
-		result, err := Map(λ, "a", "b")
+		return strings.ToUpper(s), nil
+	}
+	f := Map(λ)
+	t.Run("normal", func(t *testing.T) {
+		result, err := f("a", "b")
 		if err != nil {
 			t.Fatal(err)
 		}
@@ -23,28 +28,12 @@ func TestMap(t *testing.T) {
 		}
 	})
 	t.Run("with errors", func(t *testing.T) {
-		λ := func(e interface{}) (interface{}, error) {
-			return nil, errors.New("boom")
-		}
-		_, err := Map(λ, "a", "b")
+		_, err := f(0)
 		if err == nil {
-			t.Error("expected an error")
+			t.Fatal("expected an error")
 		}
 		if err.Error() != "boom" {
 			t.Errorf(`expected "boom", got %q`, err.Error())
 		}
 	})
-}
-
-func TestMustMap(t *testing.T) {
-	λ := func(e interface{}) interface{} {
-		return strings.ToUpper(e.(string))
-	}
-	result := MustMap(λ, "a", "b")
-	if result[0] != "A" {
-		t.Errorf(`expected "A", got %q`, result[0])
-	}
-	if result[0] != "A" {
-		t.Errorf(`expected "B", got %q`, result[1])
-	}
 }
