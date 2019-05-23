@@ -7,12 +7,12 @@ which use integers, and use them with `Λ.Map`, `Λ.Reduce`, `Λ.Find`, etc.
 
 ## Installation
 
-    go get -u github.com/bjjb/go-lambda
+    go get -u github.com/bjjb/wxa
 
 ## Usage
 
 ```go
-import Λ "gitlab.com/bjjb/go-lambda"
+import Λ "gitlab.com/bjjb/wxa"
 ```
 
 ## Examples
@@ -20,7 +20,7 @@ import Λ "gitlab.com/bjjb/go-lambda"
 ```go
 package main
 
-import Λ "github.com/bjjb/go-lambda"
+import Λ "github.com/bjjb/wxa"
 
 func main() {
   λ := func(i interface{}) interface{} {
@@ -58,5 +58,5 @@ func main() {
 
 Documentation is available on [GoDoc](https://godoc.org/gitlab.com/bjjb/λ).
 
-[home]: https://travis-ci.com/bjjb/xn--wxa
-[badge]: https://travis-ci.com/bjjb/xn--wxa.svg?branch=master
+[home]: https://travis-ci.com/bjjb/wxa
+[badge]: https://travis-ci.com/bjjb/wxa.svg?branch=master
