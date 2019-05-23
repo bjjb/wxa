@@ -3,7 +3,7 @@
 [![Build Status][badge]][home]
 
 A set of potentially useful higher-order functions in Go. Write some functions
-which use integers, and use them with `Λ.Map`, `Λ.Reduce`, `Λ.Find`, etc.
+which use integers, and use them with `Map`, `Select`, `Find`, etc.
 
 ## Installation
 
