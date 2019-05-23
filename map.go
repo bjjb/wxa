@@ -1,4 +1,4 @@
-package main
+package Λ
 
 // A MapFunc is a function suitable for a Map invokation.
 type MapFunc func(interface{}) (interface{}, error)
