@@ -1,4 +1,4 @@
-# Λ
+# λ
 
 [![Build Status][badge]][home]
 
@@ -20,39 +20,21 @@ import Λ "gitlab.com/bjjb/wxa"
 ```go
 package main
 
-import Λ "github.com/bjjb/wxa"
+import (
+  "fmt"
+  "github.com/bjjb/wxa"
+)
 
 func main() {
-  λ := func(i interface{}) interface{} {
-    return i.(int) * 2
-  }
-  fmt.Println(Λ.Map(λ, 1, 2, 3, 4, 5))
-  // Output:
-  // 2 4 6 8 10
-
-  multer := func(acc, next interface{}) interface{} {
-    return acc.(int) * acc.(next)
-  }
-  fmt.Println(Λ.Reduce(λ, 1, 2, 3, 4, 5))
-  // Output:
-  // 120
-
-  λ := func(v interface{}) bool {
-    switch t := v.(type) {
-    case bool:
-      return v.(bool)
-    case int:
-      return v.(int) != 0
-    case string:
-      return len(v.(string)) > 0
-    case nil:
-      return false
-    }
+  λ := func(i interface{}) (interface{}, error) {
+    return i.(int) * 2, nil
   }
 
-  fmt.Println(Λ.Any(truthy, 0, "", []string{}, false))
-  // Output:
-  // false
+  f := wxa.Map(doubler)
+
+  for i, r := range f(1, 2, 3, 4, 5) {
+    fmt.Println("%d: %d", i, r)
+  }
 }
 ```
 
