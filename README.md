@@ -56,7 +56,7 @@ func main() {
 }
 ```
 
-Documentation is available on [GoDoc](https://godoc.org/gitlab.com/bjjb/λ).
+Documentation is available on [GoDoc](https://godoc.org/github.com/bjjb/wxa).
 
 [home]: https://travis-ci.com/bjjb/wxa
 [badge]: https://travis-ci.com/bjjb/wxa.svg?branch=master
